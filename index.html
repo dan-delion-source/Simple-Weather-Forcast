@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Weather | Modern Weather Experience</title>
+    <meta name="description"
+        content="A premium, responsive weather application with immersive animated backgrounds and real-time data.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <canvas id="weather-bg"></canvas>
+
+    <div class="app-container">
+        <header>
+            <div class="search-container">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="location-input" placeholder="Search city..." autocomplete="off">
+                <div id="search-suggestions" class="suggestions-dropdown glass"></div>
+                <button id="search-btn">Search</button>
+            </div>
+            <div id="current-date" class="date-chip">4 Feb, 2026</div>
+        </header>
+
+        <main>
+            <section class="hero-section">
+                <div class="weather-main-info glass">
+                    <div class="location-box">
+                        <h1 id="city-name">Detecting location...</h1>
+                        <p id="weather-description">Clear Skies</p>
+                    </div>
+                    <div class="temp-box">
+                        <span id="current-temp">--</span><span class="unit">°C</span>
+                    </div>
+                </div>
+
+                <div class="highlights-grid">
+                    <div class="highlight-card glass">
+                        <div class="card-header">
+                            <i data-lucide="wind"></i>
+                            <span>Wind Speed</span>
+                        </div>
+                        <div class="card-value"><span id="wind-speed">--</span> km/h</div>
+                    </div>
+                    <div class="highlight-card glass">
+                        <div class="card-header">
+                            <i data-lucide="droplets"></i>
+                            <span>Humidity</span>
+                        </div>
+                        <div class="card-value"><span id="humidity">--</span>%</div>
+                    </div>
+                    <div class="highlight-card glass">
+                        <div class="card-header">
+                            <i data-lucide="sun"></i>
+                            <span>UV Index</span>
+                        </div>
+                        <div class="card-value" id="uv-index">--</div>
+                    </div>
+                    <div class="highlight-card glass">
+                        <div class="card-header">
+                            <i data-lucide="activity"></i>
+                            <span>AQI</span>
+                        </div>
+                        <div class="card-value" id="aqi-value">--</div>
+                    </div>
+                    <div class="highlight-card glass">
+                        <div class="card-header">
+                            <i data-lucide="sunrise"></i>
+                            <span>Sunrise</span>
+                        </div>
+                        <div class="card-value" id="sunrise-time">--:--</div>
+                    </div>
+                    <div class="highlight-card glass">
+                        <div class="card-header">
+                            <i data-lucide="sunset"></i>
+                            <span>Sunset</span>
+                        </div>
+                        <div class="card-value" id="sunset-time">--:--</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="forecast-section">
+                <h2>5-Day Forecast</h2>
+                <div class="forecast-container" id="forecast-list">
+                    <!-- Forecast items will be injected here -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by Open-Meteo API</p>
+        </footer>
+    </div>
+
+    <script src="background.js"></script>
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
